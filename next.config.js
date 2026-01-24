@@ -6,6 +6,10 @@ const nextConfig = {
 		// your project has ESLint errors.
 		ignoreDuringBuilds: true,
 	},
+	output: 'standalone',
+	experimental: {
+		missingSuspenseWithCSRBailout: false,
+	},
 };
 
 module.exports = nextConfig;
