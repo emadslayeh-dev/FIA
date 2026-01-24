@@ -44,7 +44,7 @@ export default function ProfileDetails() {
       })
       .catch((e) => console.error(e))
       .finally(() => setLoading(false));
-  }, []);
+  }, [router]);
 
   const updateField = (name, value) => setForm((s) => ({ ...s, [name]: value }));
 

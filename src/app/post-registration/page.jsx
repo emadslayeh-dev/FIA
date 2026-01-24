@@ -22,6 +22,8 @@ export default function PostRegistrationPage() {
   const [companyHasImage, setCompanyHasImage] = useState(false);
   const [uploadingProfile, setUploadingProfile] = useState(false);
   const [uploadingBusiness, setUploadingBusiness] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     if (!tempId) return;
@@ -137,10 +139,6 @@ export default function PostRegistrationPage() {
     }
     setForm((s) => ({ ...s, [name]: value }));
   };
-
-  // dropdown state & helpers for category multi-select
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
 
   const toggleCategory = (value) => {
     setForm((s) => {

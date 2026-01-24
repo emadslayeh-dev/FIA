@@ -76,7 +76,7 @@ export default function Header7() {
     router.push("/login");
     router.refresh();
     // No need to unset loggingOut; we'll navigate away
-  }, [router]);
+  }, [router, loggingOut]);
 
   return (
     <>
