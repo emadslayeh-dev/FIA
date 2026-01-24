@@ -11,6 +11,8 @@ import { userTypes } from "@/data/sugmshtamesh";
 import { rolesByUserType, defaultRoles } from "@/data/rolesByUserType";
 import { countries } from "@/data/countries";
 
+export const dynamic = 'force-dynamic';
+
 export default function PostRegistrationPage() {
   const searchParams = useSearchParams();
   const router = useRouter();

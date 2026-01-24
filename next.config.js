@@ -7,9 +7,6 @@ const nextConfig = {
 		ignoreDuringBuilds: true,
 	},
 	output: 'standalone',
-	experimental: {
-		missingSuspenseWithCSRBailout: false,
-	},
 };
 
 module.exports = nextConfig;
