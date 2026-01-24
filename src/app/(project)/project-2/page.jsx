@@ -1,0 +1,22 @@
+import Breadcumb3 from "@/components/breadcumb/Breadcumb3";
+import Breadcumb9 from "@/components/breadcumb/Breadcumb9";
+import Header7 from "@/components/header/Header7";
+
+import Listing17 from "@/components/section/Listing17";
+import TabSection1 from "@/components/section/TabSection1";
+
+export const metadata = {
+  title: "FIA - Food Industry Assistance | Project 1",
+};
+
+export default function page() {
+  return (
+    <>
+      <Header7 />
+      <TabSection1 />
+      <Breadcumb3 path={["Home", "Services", "Design & Creative"]} />
+      <Breadcumb9 />
+      <Listing17 />
+    </>
+  );
+}
