@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Footer4 from "@/components/footer/Footer4";
 import Header7 from "@/components/header/Header7";
@@ -11,9 +11,9 @@ import { userTypes } from "@/data/sugmshtamesh";
 import { rolesByUserType, defaultRoles } from "@/data/rolesByUserType";
 import { countries } from "@/data/countries";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
-export default function PostRegistrationPage() {
+function PostRegistrationContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const tempId = searchParams.get("tempId");
@@ -478,5 +478,24 @@ export default function PostRegistrationPage() {
       </section>
       <Footer4 />
     </>
+  );
+}
+
+export default function PostRegistrationPage() {
+  return (
+    <Suspense
+      fallback={
+        <div>
+          <Header7 />
+          <div className='container py-5 text-center'>
+            <div className='spinner-border' role='status'>
+              <span className='visually-hidden'>טוען...</span>
+            </div>
+          </div>
+          <Footer4 />
+        </div>
+      }>
+      <PostRegistrationContent />
+    </Suspense>
   );
 }

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Header7 from "@/components/header/Header7";
 import Footer4 from "@/components/footer/Footer4";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export default function ResetPasswordPage() {
   const router = useRouter();

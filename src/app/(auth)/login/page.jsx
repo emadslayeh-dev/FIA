@@ -5,7 +5,7 @@ import Header7 from "@/components/header/Header7";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export default function page() {
   const searchParams = useSearchParams();
