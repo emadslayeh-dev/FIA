@@ -1,12 +1,12 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import Header7 from "@/components/header/Header7";
 import Footer4 from "@/components/footer/Footer4";
 
 export const dynamic = "force-dynamic";
 
-export default function ResetPasswordPage() {
+function ResetPasswordContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get("token") || "";
@@ -126,5 +126,30 @@ export default function ResetPasswordPage() {
       </section>
       <Footer4 />
     </div>
+  );
+}
+
+export default function ResetPasswordPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className='bgc-thm4'>
+          <Header7 />
+          <section className='our-login'>
+            <div className='container'>
+              <div className='row'>
+                <div className='col-xl-6 mx-auto text-center py-5'>
+                  <span className='spinner-border' role='status'>
+                    <span className='visually-hidden'>טוען...</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <Footer4 />
+        </div>
+      }>
+      <ResetPasswordContent />
+    </Suspense>
   );
 }

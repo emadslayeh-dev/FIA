@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import Footer4 from "@/components/footer/Footer4";
 import Header7 from "@/components/header/Header7";
 import Link from "next/link";
@@ -7,7 +7,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
-export default function page() {
+function LoginContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -219,5 +219,32 @@ export default function page() {
         <Footer4 />
       </div>
     </>
+  );
+}
+
+export default function page() {
+  return (
+    <Suspense
+      fallback={
+        <>
+          <div className='bgc-thm4'>
+            <Header7 />
+            <section className='our-login'>
+              <div className='container'>
+                <div className='row'>
+                  <div className='col-xl-6 mx-auto text-center py-5'>
+                    <span className='spinner-border' role='status'>
+                      <span className='visually-hidden'>טוען...</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <Footer4 />
+          </div>
+        </>
+      }>
+      <LoginContent />
+    </Suspense>
   );
 }
